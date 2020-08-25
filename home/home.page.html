@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      PlayCommerce
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button expand="block" (click)="correrCortar()">CORRER CORTAR</ion-button>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <h1>Lista de Facturas</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let factura of facturas">
+      <ion-col>
+        <p>
+          <strong>CLIENTE: </strong>{{ factura.cliente.primerNombre }} {{ factura.cliente.apellidos.split(' ')[0] }}
+          <br>
+          <strong>FACTURA: </strong> {{ factura.comprobante }}
+          <br>
+          <strong>TOTAL: </strong> {{ factura.total }}
+        </p>
+        <ion-button expand="block" (click)="imprimir(factura.comprobante)">Imprimir</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
